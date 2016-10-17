@@ -1,5 +1,6 @@
 package com.nader.creepscore;
 
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.WebPage;
@@ -11,6 +12,13 @@ public class HomePage extends WebPage {
 		super(parameters);
 
 		add(new Label("version", getApplication().getFrameworkSettings().getVersion()));
+
+		add(new Link("searchSummonerLink") {
+			@Override
+			public void onClick(){
+				setResponsePage(SearchSummoner.class);
+			}
+		});
 
 		// TODO Add your page's components here
 
