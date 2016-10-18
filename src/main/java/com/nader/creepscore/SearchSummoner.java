@@ -1,5 +1,8 @@
 package com.nader.creepscore;
 
+import java.awt.*;
+
+//Wicket Imports
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
 import org.apache.wicket.markup.html.WebPage;
@@ -12,13 +15,13 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import java.awt.*;
-
+//JSON Imports
+import org.json.*;
 
 /**
  * Created by nader.baradar on 10/14/2016.
  * This is a simple search functionality.
- * It will accept a summoner name and return information based on that summoner
+ * It will accept a summoner name and return information about that summoner
  */
 public class SearchSummoner extends WebPage{
     private static final long serialVersionUID = 1L;
