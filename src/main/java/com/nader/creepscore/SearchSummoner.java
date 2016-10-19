@@ -43,23 +43,40 @@ public class SearchSummoner extends WebPage{
 
     public SearchSummoner(final PageParameters parameters){
         super(parameters);
-        int visitCount = 0;
 
-        //ADD VISIT COUNT LABEL==============================================
-        add(new Label("visitCounter", HomePage.visitCounter));
-
-        //ADD FORM COMPONENT=================================================
+        //ADD SEARCH BOX: FORM COMPONENT=================================================
         summonerSearchForm= new Form("summonerSearchForm");
         summonerSearchBox = new TextField("summonerSearchBox", new Model(""));
         summonerSearchForm.add(summonerSearchBox);
+
+        //Add button to form component and override onSubmit method
         summonerSearchForm.add(new Button("summonerSearchButton") {
             @Override
             public void onSubmit(){
                 String value = (String)summonerSearchBox.getModelObject();
-                summonerInfo.setDefaultModelObject(value);
+                String response = null;
+
+                //Call RetrieveInfo method using the searched term as the parameter
+                try {
+                    response = RetrieveInfo(value);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                //Check to see if RetrieveInfo method successfully responded with desired JSON object
+                if (response != null) {
+                    summonerInfo.setDefaultModelObject(response);
+                }else {
+                    summonerInfo.setDefaultModelObject(value);
+                }
+
+                //Clear the search box
                 summonerSearchBox.setModelObject("");
             }
         });
+
+        //Add the form component and label to the page
         add(summonerSearchForm);
         add(summonerInfo = new Label("summonerInfo", new Model("")));
 
@@ -74,31 +91,9 @@ public class SearchSummoner extends WebPage{
             }
         });
         ajaxLabel = new Label("ajaxLabel", new PropertyModel(this, "ajaxCounter"));
+        //must use this to generate a markup identifier for the label, so that the DOM can be updated
         ajaxLabel.setOutputMarkupId(true);
         add(ajaxLabel);
-
-        /*HTTP REQUEST AND GET==================================================
-        CloseableHttpClient httpclient = HttpClients.createDefault();
-        HttpGet httpget = new HttpGet("http://httpbin.org");
-        System.out.println("Executing request " + httpget.getRequestLine());
-
-        //Create a custom response handler
-        ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
-            @Override
-            public String handleResponse(final HttpResponse response) throws ClientProtocolException, IOException {
-                int status = response.getStatusLine().getStatusCode();
-                if (status >= 200 && status <300){
-                    HttpEntity entity = response.getEntity();
-                    return entity != null ? EntityUtils.toString(entity) : null;
-                } else {
-                    throw new ClientProtocolException("Unexpected response status: " + status);
-                }
-            }
-        };
-        String responseBody = httpclient.execute(httpget, responseHandler);
-        System.out.println("--------------------------------------");
-        System.out.println(responseBody); */
-
 
         //ADD HOME BUTTON=========================================================
         add(new Link("homeLink") {
@@ -107,5 +102,73 @@ public class SearchSummoner extends WebPage{
                 setResponsePage(HomePage.class);
             }
         });
+
+        //ADD VISIT COUNT LABEL==============================================
+        add(new Label("visitCounter", HomePage.visitCounter));
+    }
+
+    /*HTTP REQUEST AND GET==================================================
+    This method takes a a parameter a summoner name and returns the
+        -Summoner ID
+        -Summoner Name
+        -Summoner Icon ID
+        -Summoner Level
+        -When the summoner was last modified */
+
+    public String RetrieveInfo(String summonerName) throws Exception {
+        String apiCall = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/" + summonerName + "?api_key=35e3424c-b67c-4c08-8ed2-5295e9663537";
+        String responseBody = null;
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+        try {
+            HttpGet httpget = new HttpGet(apiCall);
+            System.out.println("Executing request " + httpget.getRequestLine());
+
+            //Create a custom response handler
+            ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
+                @Override
+                public String handleResponse(final HttpResponse response) throws ClientProtocolException, IOException {
+                    int status = response.getStatusLine().getStatusCode();
+                    if (status >= 200 && status < 300) {
+                        HttpEntity entity = response.getEntity();
+                        return entity != null ? EntityUtils.toString(entity) : null;
+                    } else {
+                        throw new ClientProtocolException("Unexpected response status: " + status);
+                    }
+                }
+            };
+            responseBody = httpclient.execute(httpget, responseHandler);
+        } finally {
+            httpclient.close();
+        }
+        return responseBody;
+    }
+
+    //Identical to RetrieveInfo but it returns a JSON Object as opposed to a String
+    public JSONObject RetrieveInfoJSON(String summonerName) throws Exception {
+        String apiCall = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/" + summonerName + "?api_key=35e3424c-b67c-4c08-8ed2-5295e9663537";
+        JSONObject responseBody = null;
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+        try {
+            HttpGet httpget = new HttpGet(apiCall);
+            System.out.println("Executing request " + httpget.getRequestLine());
+
+            //Create a custom response handler
+            ResponseHandler<JSONObject> responseHandler = new ResponseHandler<JSONObject>() {
+                @Override
+                public JSONObject handleResponse(final HttpResponse response) throws ClientProtocolException, IOException {
+                    int status = response.getStatusLine().getStatusCode();
+                    if (status >= 200 && status < 300) {
+                        HttpEntity entity = response.getEntity();
+                        return entity != null ? (JSONObject) entity : null;
+                    } else {
+                        throw new ClientProtocolException("Unexpected response status: " + status);
+                    }
+                }
+            };
+            responseBody = httpclient.execute(httpget, responseHandler);
+        } finally {
+            httpclient.close();
+        }
+        return responseBody;
     }
 }
