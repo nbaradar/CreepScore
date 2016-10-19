@@ -55,17 +55,21 @@ public class SearchSummoner extends WebPage{
             public void onSubmit(){
                 String value = (String)summonerSearchBox.getModelObject();
                 String response = null;
+                JSONObject responseJSON = new JSONObject();
 
                 //Call RetrieveInfo method using the searched term as the parameter
                 try {
                     response = RetrieveInfo(value);
+                    //responseJSON = RetrieveInfoJSON(value);
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
                 //Check to see if RetrieveInfo method successfully responded with desired JSON object
-                if (response != null) {
+                if (response != null && responseJSON != null) {
+                    //JSONArray summonerName = new JSONArray();
+                    //summonerName = responseJSON.getJSONArray("pseudomode");
                     summonerInfo.setDefaultModelObject(response);
                 }else {
                     summonerInfo.setDefaultModelObject(value);
@@ -109,11 +113,11 @@ public class SearchSummoner extends WebPage{
 
     /*HTTP REQUEST AND GET==================================================
     This method takes a a parameter a summoner name and returns the
-        -Summoner ID
-        -Summoner Name
-        -Summoner Icon ID
-        -Summoner Level
-        -When the summoner was last modified */
+        -Summoner ID: long
+        -Summoner Name: string
+        -Summoner Icon ID: int
+        -Summoner Level: long
+        -When the summoner was last modified: long */
 
     public String RetrieveInfo(String summonerName) throws Exception {
         String apiCall = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/" + summonerName + "?api_key=35e3424c-b67c-4c08-8ed2-5295e9663537";
