@@ -29,6 +29,10 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
+//Jackson Imports
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.databind.*;
+
 /**
  * Created by nader.baradar on 10/14/2016.
  * This is a simple search functionality.
@@ -60,16 +64,29 @@ public class SearchSummoner extends WebPage{
                 //Call RetrieveInfo method using the searched term as the parameter
                 try {
                     response = RetrieveInfo(value);
-                    //responseJSON = RetrieveInfoJSON(value);
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
+                //Create Object Mapper
+                ObjectMapper mapper = new ObjectMapper();
+                int count = response.indexOf(':');
+                response = response.substring(count+1);
+
+                //Deserialize JSON String to Object
+                try {
+                    Summoner summoner = mapper.readValue(response, Summoner.class);
+
+                    System.out.print(summoner);
+                }
+                catch (JsonParseException e){e.printStackTrace();}
+                catch (JsonMappingException e) {e.printStackTrace();}
+                catch (IOException e) {e.printStackTrace();}
+
+
                 //Check to see if RetrieveInfo method successfully responded with desired JSON object
                 if (response != null && responseJSON != null) {
-                    //JSONArray summonerName = new JSONArray();
-                    //summonerName = responseJSON.getJSONArray("pseudomode");
                     summonerInfo.setDefaultModelObject(response);
                 }else {
                     summonerInfo.setDefaultModelObject(value);
@@ -147,32 +164,33 @@ public class SearchSummoner extends WebPage{
         return responseBody;
     }
 
-    //Identical to RetrieveInfo but it returns a JSON Object as opposed to a String
-    public JSONObject RetrieveInfoJSON(String summonerName) throws Exception {
-        String apiCall = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/" + summonerName + "?api_key=35e3424c-b67c-4c08-8ed2-5295e9663537";
-        JSONObject responseBody = null;
-        CloseableHttpClient httpclient = HttpClients.createDefault();
-        try {
-            HttpGet httpget = new HttpGet(apiCall);
-            System.out.println("Executing request " + httpget.getRequestLine());
+    //SUMMONER OBJECT===============================================================
+    // Summoner Class to create summoner object and hold
+    // information regarding searched summoner
+    class Summoner{
+        private long summonerId, revisionDate, summonerLevel;
+        private int profileIconId;
+        private String summonerName;
 
-            //Create a custom response handler
-            ResponseHandler<JSONObject> responseHandler = new ResponseHandler<JSONObject>() {
-                @Override
-                public JSONObject handleResponse(final HttpResponse response) throws ClientProtocolException, IOException {
-                    int status = response.getStatusLine().getStatusCode();
-                    if (status >= 200 && status < 300) {
-                        HttpEntity entity = response.getEntity();
-                        return entity != null ? (JSONObject) entity : null;
-                    } else {
-                        throw new ClientProtocolException("Unexpected response status: " + status);
-                    }
-                }
-            };
-            responseBody = httpclient.execute(httpget, responseHandler);
-        } finally {
-            httpclient.close();
+        public Summoner(){}
+
+        public long getSummonerId(){return summonerId;}
+        public void setSummonerId(long summonerId){this.summonerId = summonerId;}
+
+        public long getRevisionDate(){return revisionDate;}
+        public void setRevisionDate(long revisionDate){this.revisionDate = revisionDate;}
+
+        public long getSummonerLevel(){return summonerLevel;}
+        public void setSummonerLevel(long summonerLevel){this.summonerLevel = summonerLevel;}
+
+        public String getSummonerName(){return summonerName;}
+        public void setSummonerName(String summonerName){this.summonerName = summonerName;}
+
+        public int getProfileIconId(){return profileIconId;}
+        public void setProfileIconId(int profileIconId){this.profileIconId = profileIconId;}
+
+        public String toString(){
+            return "Summoner [ id: "+summonerId+", name: "+summonerName+", level: "+summonerLevel+" ]";
         }
-        return responseBody;
     }
 }
