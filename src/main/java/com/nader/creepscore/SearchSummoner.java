@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.IOException;
 
 //Wicket Imports
+import com.fasterxml.jackson.annotation.JsonCreator;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
 import org.apache.wicket.markup.html.WebPage;
@@ -48,7 +49,7 @@ public class SearchSummoner extends WebPage{
     public SearchSummoner(final PageParameters parameters){
         super(parameters);
 
-        //ADD SEARCH BOX: FORM COMPONENT=================================================
+        //ADD SEARCH BOX: FORM COMPONENT==============================================================
         summonerSearchForm= new Form("summonerSearchForm");
         summonerSearchBox = new TextField("summonerSearchBox", new Model(""));
         summonerSearchForm.add(summonerSearchBox);
@@ -61,7 +62,7 @@ public class SearchSummoner extends WebPage{
                 String response = null;
                 JSONObject responseJSON = new JSONObject();
 
-                //Call RetrieveInfo method using the searched term as the parameter
+                //Call RetrieveInfo method using the searched term as the parameter to obtain Summoner JSON
                 try {
                     response = RetrieveInfo(value);
 
@@ -73,6 +74,7 @@ public class SearchSummoner extends WebPage{
                 ObjectMapper mapper = new ObjectMapper();
                 int count = response.indexOf(':');
                 response = response.substring(count+1);
+                response = response.substring(0,(response.length()-1));
 
                 //Deserialize JSON String to Object
                 try {
@@ -101,7 +103,7 @@ public class SearchSummoner extends WebPage{
         add(summonerSearchForm);
         add(summonerInfo = new Label("summonerInfo", new Model("")));
 
-        //ADD AJAX LINK AND DYNAMIC LABEL=====================================
+        //ADD AJAX LINK AND DYNAMIC LABEL=============================================================
         add(new AjaxFallbackLink("ajaxCounterLink") {
             @Override
             public void onClick(AjaxRequestTarget target){
@@ -116,7 +118,7 @@ public class SearchSummoner extends WebPage{
         ajaxLabel.setOutputMarkupId(true);
         add(ajaxLabel);
 
-        //ADD HOME BUTTON=========================================================
+        //ADD HOME BUTTON=============================================================================
         add(new Link("homeLink") {
             @Override
             public void onClick(){
@@ -124,11 +126,11 @@ public class SearchSummoner extends WebPage{
             }
         });
 
-        //ADD VISIT COUNT LABEL==============================================
+        //ADD VISIT COUNT LABEL========================================================================
         add(new Label("visitCounter", HomePage.visitCounter));
     }
 
-    /*HTTP REQUEST AND GET==================================================
+    /*HTTP REQUEST AND GET==============================================================================
     This method takes a a parameter a summoner name and returns the
         -Summoner ID: long
         -Summoner Name: string
@@ -172,22 +174,23 @@ public class SearchSummoner extends WebPage{
         private int profileIconId;
         private String summonerName;
 
+        @JsonCreator
         public Summoner(){}
 
         public long getSummonerId(){return summonerId;}
         public void setSummonerId(long summonerId){this.summonerId = summonerId;}
-
-        public long getRevisionDate(){return revisionDate;}
-        public void setRevisionDate(long revisionDate){this.revisionDate = revisionDate;}
-
-        public long getSummonerLevel(){return summonerLevel;}
-        public void setSummonerLevel(long summonerLevel){this.summonerLevel = summonerLevel;}
 
         public String getSummonerName(){return summonerName;}
         public void setSummonerName(String summonerName){this.summonerName = summonerName;}
 
         public int getProfileIconId(){return profileIconId;}
         public void setProfileIconId(int profileIconId){this.profileIconId = profileIconId;}
+
+        public long getSummonerLevel(){return summonerLevel;}
+        public void setSummonerLevel(long summonerLevel){this.summonerLevel = summonerLevel;}
+
+        public long getRevisionDate(){return revisionDate;}
+        public void setRevisionDate(long revisionDate){this.revisionDate = revisionDate;}
 
         public String toString(){
             return "Summoner [ id: "+summonerId+", name: "+summonerName+", level: "+summonerLevel+" ]";
