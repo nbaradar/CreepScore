@@ -6,6 +6,7 @@ import java.io.IOException;
 //Wicket Imports
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.google.gson.Gson;
+import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
 import org.apache.wicket.markup.ComponentTag;
@@ -52,7 +53,7 @@ public class SearchSummoner extends WebPage{
     MultiLineLabel summonerInfoToString;
     Form summonerSearchForm;
     TextField summonerSearchBox;
-    StaticImage profileImage;
+    ExternalImageUrl profileImage;
 
     public SearchSummoner(final PageParameters parameters){
         super(parameters);
@@ -92,12 +93,9 @@ public class SearchSummoner extends WebPage{
                 summonerInfoJson.setDefaultModelObject(response);
                 summonerInfoToString.setDefaultModelObject(searchedSummoner.toString());
 
+                //Get Profile icon using information retrieved from JSON query
                 String profileIcon = "http://ddragon.leagueoflegends.com/cdn/6.21.1/img/profileicon/"+searchedSummoner.getProfileIconId()+".png";
-                System.out.println(profileIcon);
-
-                if (profileIcon != null) {
-                    add(new StaticImage("img", new Model(profileIcon.toString())));
-                }
+                profileImage.setDefaultModelObject(profileIcon);
 
                 //Clear the search box
                 summonerSearchBox.setModelObject("");
@@ -136,7 +134,8 @@ public class SearchSummoner extends WebPage{
         add(summonerInfoJson = new Label("summonerInfoJson", new Model("")));
         add(summonerInfoToString = new MultiLineLabel("summonerInfoToString", new Model("")));
         add(visitorCounter = new Label("visitCounter", HomePage.visitCounter));
-        add(profileImage = new StaticImage("img", new Model("")));
+        add(profileImage = new ExternalImageUrl("img", new Model("")));
+        //profileImage.setOutputMarkupId(true);
     }
 
     /*HTTP REQUEST AND GET==============================================================================
@@ -174,7 +173,7 @@ public class SearchSummoner extends WebPage{
         return responseBody;
     }
 
-    //SUMMONER OBJECT===============================================================
+    //SUMMONER OBJECT===================================================================================
     // Summoner Class to create summoner object and hold
     // information regarding searched summoner
     class Summoner{
@@ -215,15 +214,17 @@ public class SearchSummoner extends WebPage{
         }
     }
 
-    public class StaticImage extends WebComponent{
-        public StaticImage(String id, IModel model){
-            super(id, model);
+    //COMPONENT CREATED TO HOLD PICTURE===============================================================
+    public class ExternalImageUrl extends WebComponent{
+        public ExternalImageUrl(String id, IModel imageUrl){
+            super(id, imageUrl);
+            add(new AttributeModifier("src", imageUrl));
+            setVisible(!(imageUrl==null || imageUrl.equals("")));
         }
 
         protected void onComponentTag(ComponentTag tag){
             super.onComponentTag(tag);
             checkComponentTag(tag, "img");
-            tag.put("src", getDefaultModelObjectAsString());
         }
     }
 }

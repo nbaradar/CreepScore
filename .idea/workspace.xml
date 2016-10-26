@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="205b3632-90ec-4bf3-b80d-48b0b81d38bd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.html" afterPath="$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.java" afterPath="$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.java" />
     </list>
     <ignored path="CreepScore.iws" />
@@ -28,17 +27,14 @@
       <file leaf-file-name="SearchSummoner.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="220" column="9" selection-start-line="220" selection-start-column="9" selection-end-line="220" selection-end-column="9" />
+            <state relative-caret-position="-119">
+              <caret line="95" column="78" selection-start-line="95" selection-start-column="78" selection-end-line="95" selection-end-column="78" />
               <folding>
-                <element signature="e#4917#4918#0" expanded="true" />
-                <element signature="e#4980#4981#0" expanded="true" />
+                <element signature="e#4915#4916#0" expanded="true" />
+                <element signature="e#4978#4979#0" expanded="true" />
                 <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
-                <element signature="e#6517#7160#0" expanded="true" />
-                <element signature="e#7159#7160#0" expanded="true" />
-                <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
-                <element signature="e#9123#9124#0" expanded="true" />
-                <element signature="e#9163#9164#0" expanded="true" />
+                <element signature="e#6568#7211#0" expanded="true" />
+                <element signature="e#7210#7211#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -157,8 +153,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1169" />
-    <option name="height" value="1040" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -688,7 +686,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477490575453</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Static Profile Image Added&#10;Added static profile image. Still need to make the image dynamic for every search">
+      <created>1477501975094</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1477501975094</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -701,7 +706,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1169" height="1040" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -712,11 +717,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21212122" sideWeight="0.5021322" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27813852" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20594713" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20238096" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11091073" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.065565035" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -772,7 +777,8 @@
     <MESSAGE value="Code and Dependency updates&#10;Added serialization code. Still broken, throwing errors.&#10;Added Jackson dependencies to Maven" />
     <MESSAGE value="Added GSON&#10;Also corrected JSON string" />
     <MESSAGE value="Deserialized JSON&#10;Used GSON to convert retrieved JSON String to Summoner POJO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deserialized JSON&#10;Used GSON to convert retrieved JSON String to Summoner POJO" />
+    <MESSAGE value="Static Profile Image Added&#10;Added static profile image. Still need to make the image dynamic for every search" />
+    <option name="LAST_COMMIT_MESSAGE" value="Static Profile Image Added&#10;Added static profile image. Still need to make the image dynamic for every search" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -788,14 +794,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4917#4918#0" expanded="true" />
-            <element signature="e#4980#4981#0" expanded="true" />
+            <element signature="e#4915#4916#0" expanded="true" />
+            <element signature="e#4978#4979#0" expanded="true" />
             <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
-            <element signature="e#6517#7160#0" expanded="true" />
-            <element signature="e#7159#7160#0" expanded="true" />
-            <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
-            <element signature="e#9123#9124#0" expanded="true" />
-            <element signature="e#9163#9164#0" expanded="true" />
+            <element signature="e#6568#7211#0" expanded="true" />
+            <element signature="e#7210#7211#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -837,14 +840,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4917#4918#0" expanded="true" />
-            <element signature="e#4980#4981#0" expanded="true" />
+            <element signature="e#4915#4916#0" expanded="true" />
+            <element signature="e#4978#4979#0" expanded="true" />
             <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
-            <element signature="e#6517#7160#0" expanded="true" />
-            <element signature="e#7159#7160#0" expanded="true" />
-            <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
-            <element signature="e#9123#9124#0" expanded="true" />
-            <element signature="e#9163#9164#0" expanded="true" />
+            <element signature="e#6568#7211#0" expanded="true" />
+            <element signature="e#7210#7211#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -886,14 +886,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4917#4918#0" expanded="true" />
-            <element signature="e#4980#4981#0" expanded="true" />
+            <element signature="e#4915#4916#0" expanded="true" />
+            <element signature="e#4978#4979#0" expanded="true" />
             <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
-            <element signature="e#6517#7160#0" expanded="true" />
-            <element signature="e#7159#7160#0" expanded="true" />
-            <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
-            <element signature="e#9123#9124#0" expanded="true" />
-            <element signature="e#9163#9164#0" expanded="true" />
+            <element signature="e#6568#7211#0" expanded="true" />
+            <element signature="e#7210#7211#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -935,14 +932,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4917#4918#0" expanded="true" />
-            <element signature="e#4980#4981#0" expanded="true" />
+            <element signature="e#4915#4916#0" expanded="true" />
+            <element signature="e#4978#4979#0" expanded="true" />
             <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
-            <element signature="e#6517#7160#0" expanded="true" />
-            <element signature="e#7159#7160#0" expanded="true" />
-            <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
-            <element signature="e#9123#9124#0" expanded="true" />
-            <element signature="e#9163#9164#0" expanded="true" />
+            <element signature="e#6568#7211#0" expanded="true" />
+            <element signature="e#7210#7211#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -984,14 +978,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4917#4918#0" expanded="true" />
-            <element signature="e#4980#4981#0" expanded="true" />
+            <element signature="e#4915#4916#0" expanded="true" />
+            <element signature="e#4978#4979#0" expanded="true" />
             <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
-            <element signature="e#6517#7160#0" expanded="true" />
-            <element signature="e#7159#7160#0" expanded="true" />
-            <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
-            <element signature="e#9123#9124#0" expanded="true" />
-            <element signature="e#9163#9164#0" expanded="true" />
+            <element signature="e#6568#7211#0" expanded="true" />
+            <element signature="e#7210#7211#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1107,17 +1098,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="220" column="9" selection-start-line="220" selection-start-column="9" selection-end-line="220" selection-end-column="9" />
+        <state relative-caret-position="-119">
+          <caret line="95" column="78" selection-start-line="95" selection-start-column="78" selection-end-line="95" selection-end-column="78" />
           <folding>
-            <element signature="e#4917#4918#0" expanded="true" />
-            <element signature="e#4980#4981#0" expanded="true" />
+            <element signature="e#4915#4916#0" expanded="true" />
+            <element signature="e#4978#4979#0" expanded="true" />
             <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
-            <element signature="e#6517#7160#0" expanded="true" />
-            <element signature="e#7159#7160#0" expanded="true" />
-            <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
-            <element signature="e#9123#9124#0" expanded="true" />
-            <element signature="e#9163#9164#0" expanded="true" />
+            <element signature="e#6568#7211#0" expanded="true" />
+            <element signature="e#7210#7211#0" expanded="true" />
           </folding>
         </state>
       </provider>
