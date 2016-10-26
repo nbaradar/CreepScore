@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="205b3632-90ec-4bf3-b80d-48b0b81d38bd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.java" afterPath="$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.html" afterPath="$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.html" />
     </list>
     <ignored path="CreepScore.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +27,8 @@
       <file leaf-file-name="SearchSummoner.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-119">
-              <caret line="95" column="78" selection-start-line="95" selection-start-column="78" selection-end-line="95" selection-end-column="78" />
+            <state relative-caret-position="153">
+              <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
               <folding>
                 <element signature="e#4915#4916#0" expanded="true" />
                 <element signature="e#4978#4979#0" expanded="true" />
@@ -53,7 +53,7 @@
       <file leaf-file-name="JSONObject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/json/JSONObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
+            <state relative-caret-position="-161">
               <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
               <folding />
             </state>
@@ -63,8 +63,8 @@
       <file leaf-file-name="SearchSummoner.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="47" />
+            <state relative-caret-position="343">
+              <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -132,8 +132,8 @@
         <option value="$PROJECT_DIR$/JSON-java-master/JSONObject.java" />
         <option value="$PROJECT_DIR$/JSON-java-master/HTTP.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.html" />
       </list>
     </option>
   </component>
@@ -693,7 +693,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477501975094</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Dynamic Profile Image Added&#10;Summoner Icons are now displayed per search">
+      <created>1477506562970</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1477506562970</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -778,7 +785,8 @@
     <MESSAGE value="Added GSON&#10;Also corrected JSON string" />
     <MESSAGE value="Deserialized JSON&#10;Used GSON to convert retrieved JSON String to Summoner POJO" />
     <MESSAGE value="Static Profile Image Added&#10;Added static profile image. Still need to make the image dynamic for every search" />
-    <option name="LAST_COMMIT_MESSAGE" value="Static Profile Image Added&#10;Added static profile image. Still need to make the image dynamic for every search" />
+    <MESSAGE value="Dynamic Profile Image Added&#10;Summoner Icons are now displayed per search" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dynamic Profile Image Added&#10;Summoner Icons are now displayed per search" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1072,14 +1080,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/json/JSONObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
@@ -1088,18 +1088,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/json/JSONObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-161">
+          <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="47" />
+        <state relative-caret-position="343">
+          <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="95" column="78" selection-start-line="95" selection-start-column="78" selection-end-line="95" selection-end-column="78" />
+        <state relative-caret-position="153">
+          <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
           <folding>
             <element signature="e#4915#4916#0" expanded="true" />
             <element signature="e#4978#4979#0" expanded="true" />
