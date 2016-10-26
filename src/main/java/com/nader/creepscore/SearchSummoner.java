@@ -5,10 +5,12 @@ import java.io.IOException;
 
 //Wicket Imports
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.google.gson.Gson;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.basic.MultiLineLabel;
 import org.apache.wicket.markup.html.form.*;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.TextField;
@@ -42,7 +44,8 @@ import com.fasterxml.jackson.databind.*;
 public class SearchSummoner extends WebPage{
     private static final long serialVersionUID = 1L;
     int ajaxCounter;
-    Label ajaxLabel, summonerInfo;
+    Label ajaxLabel, summonerInfoJson;
+    MultiLineLabel summonerInfoToString;
     Form summonerSearchForm;
     TextField summonerSearchBox;
 
@@ -60,7 +63,6 @@ public class SearchSummoner extends WebPage{
             public void onSubmit(){
                 String value = (String)summonerSearchBox.getModelObject();
                 String response = null;
-                JSONObject responseJSON = new JSONObject();
 
                 //Call RetrieveInfo method using the searched term as the parameter to obtain Summoner JSON
                 try {
@@ -70,38 +72,30 @@ public class SearchSummoner extends WebPage{
                     e.printStackTrace();
                 }
 
-                //Create Object Mapper
-                ObjectMapper mapper = new ObjectMapper();
+                //Create GSON object
+                Gson gson = new Gson();
+
+                //Clean up JSON Object
                 int count = response.indexOf(':');
                 response = response.substring(count+1);
                 response = response.substring(0,(response.length()-1));
 
-                //Deserialize JSON String to Object
-                try {
-                    Summoner summoner = mapper.readValue(response, Summoner.class);
+                //Convert JSON to Java Object using GSON
+                Summoner searchedSummoner = gson.fromJson(response, Summoner.class);
 
-                    System.out.print(summoner);
-                }
-                catch (JsonParseException e){e.printStackTrace();}
-                catch (JsonMappingException e) {e.printStackTrace();}
-                catch (IOException e) {e.printStackTrace();}
-
-
-                //Check to see if RetrieveInfo method successfully responded with desired JSON object
-                if (response != null && responseJSON != null) {
-                    summonerInfo.setDefaultModelObject(response);
-                }else {
-                    summonerInfo.setDefaultModelObject(value);
-                }
+                //Set label to display JSON returned from search query
+                summonerInfoJson.setDefaultModelObject(response);
+                summonerInfoToString.setDefaultModelObject(searchedSummoner.toString());
 
                 //Clear the search box
                 summonerSearchBox.setModelObject("");
             }
         });
 
-        //Add the form component and label to the page
+        //Add the form component and labels to the page
         add(summonerSearchForm);
-        add(summonerInfo = new Label("summonerInfo", new Model("")));
+        add(summonerInfoJson = new Label("summonerInfoJson", new Model("")));
+        add(summonerInfoToString = new MultiLineLabel("summonerInfoToString", new Model("")));
 
         //ADD AJAX LINK AND DYNAMIC LABEL=============================================================
         add(new AjaxFallbackLink("ajaxCounterLink") {
@@ -170,18 +164,27 @@ public class SearchSummoner extends WebPage{
     // Summoner Class to create summoner object and hold
     // information regarding searched summoner
     class Summoner{
-        private long summonerId, revisionDate, summonerLevel;
+        private long id;
+        private String name;
         private int profileIconId;
-        private String summonerName;
+        private long summonerLevel;
+        private long revisionDate;
 
-        @JsonCreator
         public Summoner(){}
 
-        public long getSummonerId(){return summonerId;}
-        public void setSummonerId(long summonerId){this.summonerId = summonerId;}
+        public Summoner(long summonerId, String summonerName, int profileIconId, long summonerLevel, long revisionDate){
+            this.id = summonerId;
+            this.name = summonerName;
+            this.profileIconId = profileIconId;
+            this.summonerLevel = summonerLevel;
+            this.revisionDate = revisionDate;
+        }
 
-        public String getSummonerName(){return summonerName;}
-        public void setSummonerName(String summonerName){this.summonerName = summonerName;}
+        public long getSummonerId(){return id;}
+        public void setSummonerId(long summonerId){this.id = summonerId;}
+
+        public String getSummonerName(){return name;}
+        public void setSummonerName(String summonerName){this.name = summonerName;}
 
         public int getProfileIconId(){return profileIconId;}
         public void setProfileIconId(int profileIconId){this.profileIconId = profileIconId;}
@@ -192,8 +195,9 @@ public class SearchSummoner extends WebPage{
         public long getRevisionDate(){return revisionDate;}
         public void setRevisionDate(long revisionDate){this.revisionDate = revisionDate;}
 
+        @Override
         public String toString(){
-            return "Summoner [ id: "+summonerId+", name: "+summonerName+", level: "+summonerLevel+" ]";
+            return "========== Summoner ========== \n\t\tid: "+id+" \n\t\tname: "+name+" \n\t\tlevel: "+summonerLevel+" \n\t\ticon: "+profileIconId;
         }
     }
 }
