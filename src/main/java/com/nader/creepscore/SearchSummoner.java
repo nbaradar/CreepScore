@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.google.gson.Gson;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
+import org.apache.wicket.markup.ComponentTag;
+import org.apache.wicket.markup.html.WebComponent;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.basic.MultiLineLabel;
@@ -15,9 +17,11 @@ import org.apache.wicket.markup.html.form.*;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.apache.wicket.markup.html.image.Image;
 
 //JSON Imports
 import org.json.*;
@@ -44,10 +48,11 @@ import com.fasterxml.jackson.databind.*;
 public class SearchSummoner extends WebPage{
     private static final long serialVersionUID = 1L;
     int ajaxCounter;
-    Label ajaxLabel, summonerInfoJson;
+    Label ajaxLabel, summonerInfoJson, visitorCounter;
     MultiLineLabel summonerInfoToString;
     Form summonerSearchForm;
     TextField summonerSearchBox;
+    StaticImage profileImage;
 
     public SearchSummoner(final PageParameters parameters){
         super(parameters);
@@ -87,15 +92,17 @@ public class SearchSummoner extends WebPage{
                 summonerInfoJson.setDefaultModelObject(response);
                 summonerInfoToString.setDefaultModelObject(searchedSummoner.toString());
 
+                String profileIcon = "http://ddragon.leagueoflegends.com/cdn/6.21.1/img/profileicon/"+searchedSummoner.getProfileIconId()+".png";
+                System.out.println(profileIcon);
+
+                if (profileIcon != null) {
+                    add(new StaticImage("img", new Model(profileIcon.toString())));
+                }
+
                 //Clear the search box
                 summonerSearchBox.setModelObject("");
             }
         });
-
-        //Add the form component and labels to the page
-        add(summonerSearchForm);
-        add(summonerInfoJson = new Label("summonerInfoJson", new Model("")));
-        add(summonerInfoToString = new MultiLineLabel("summonerInfoToString", new Model("")));
 
         //ADD AJAX LINK AND DYNAMIC LABEL=============================================================
         add(new AjaxFallbackLink("ajaxCounterLink") {
@@ -120,8 +127,16 @@ public class SearchSummoner extends WebPage{
             }
         });
 
-        //ADD VISIT COUNT LABEL========================================================================
-        add(new Label("visitCounter", HomePage.visitCounter));
+        /*ADD COMPONENTS TO THE PAGE===================================================================
+            -Form component for search
+            -Summoner JSON Label and toString Label
+            -Visitor count label
+         */
+        add(summonerSearchForm);
+        add(summonerInfoJson = new Label("summonerInfoJson", new Model("")));
+        add(summonerInfoToString = new MultiLineLabel("summonerInfoToString", new Model("")));
+        add(visitorCounter = new Label("visitCounter", HomePage.visitCounter));
+        add(profileImage = new StaticImage("img", new Model("")));
     }
 
     /*HTTP REQUEST AND GET==============================================================================
@@ -131,7 +146,6 @@ public class SearchSummoner extends WebPage{
         -Summoner Icon ID: int
         -Summoner Level: long
         -When the summoner was last modified: long */
-
     public String RetrieveInfo(String summonerName) throws Exception {
         String apiCall = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/" + summonerName + "?api_key=35e3424c-b67c-4c08-8ed2-5295e9663537";
         String responseBody = null;
@@ -198,6 +212,18 @@ public class SearchSummoner extends WebPage{
         @Override
         public String toString(){
             return "========== Summoner ========== \n\t\tid: "+id+" \n\t\tname: "+name+" \n\t\tlevel: "+summonerLevel+" \n\t\ticon: "+profileIconId;
+        }
+    }
+
+    public class StaticImage extends WebComponent{
+        public StaticImage(String id, IModel model){
+            super(id, model);
+        }
+
+        protected void onComponentTag(ComponentTag tag){
+            super.onComponentTag(tag);
+            checkComponentTag(tag, "img");
+            tag.put("src", getDefaultModelObjectAsString());
         }
     }
 }

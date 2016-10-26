@@ -28,13 +28,17 @@
       <file leaf-file-name="SearchSummoner.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+            <state relative-caret-position="1224">
+              <caret line="220" column="9" selection-start-line="220" selection-start-column="9" selection-end-line="220" selection-end-column="9" />
               <folding>
-                <element signature="e#4606#4607#0" expanded="true" />
-                <element signature="e#4669#4670#0" expanded="true" />
-                <element signature="e#5781#6424#0" expanded="true" />
-                <element signature="e#6423#6424#0" expanded="true" />
+                <element signature="e#4917#4918#0" expanded="true" />
+                <element signature="e#4980#4981#0" expanded="true" />
+                <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
+                <element signature="e#6517#7160#0" expanded="true" />
+                <element signature="e#7159#7160#0" expanded="true" />
+                <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
+                <element signature="e#9123#9124#0" expanded="true" />
+                <element signature="e#9163#9164#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,8 +67,8 @@
       <file leaf-file-name="SearchSummoner.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="74" selection-start-line="17" selection-start-column="74" selection-end-line="17" selection-end-column="74" />
+            <state relative-caret-position="272">
+              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -153,10 +157,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1169" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -679,7 +681,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477415198329</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Deserialized JSON&#10;Used GSON to convert retrieved JSON String to Summoner POJO">
+      <created>1477490575453</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1477490575453</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -692,7 +701,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="0" width="1169" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -703,11 +712,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21212122" sideWeight="0.5021322" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27813852" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2034632" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20594713" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.065565035" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11091073" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -762,7 +771,8 @@
     <MESSAGE value="Maven pom.xml update&#10;Added dependency for Jackson" />
     <MESSAGE value="Code and Dependency updates&#10;Added serialization code. Still broken, throwing errors.&#10;Added Jackson dependencies to Maven" />
     <MESSAGE value="Added GSON&#10;Also corrected JSON string" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added GSON&#10;Also corrected JSON string" />
+    <MESSAGE value="Deserialized JSON&#10;Used GSON to convert retrieved JSON String to Summoner POJO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deserialized JSON&#10;Used GSON to convert retrieved JSON String to Summoner POJO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -778,10 +788,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4606#4607#0" expanded="true" />
-            <element signature="e#4669#4670#0" expanded="true" />
-            <element signature="e#5781#6424#0" expanded="true" />
-            <element signature="e#6423#6424#0" expanded="true" />
+            <element signature="e#4917#4918#0" expanded="true" />
+            <element signature="e#4980#4981#0" expanded="true" />
+            <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
+            <element signature="e#6517#7160#0" expanded="true" />
+            <element signature="e#7159#7160#0" expanded="true" />
+            <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
+            <element signature="e#9123#9124#0" expanded="true" />
+            <element signature="e#9163#9164#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -823,10 +837,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4606#4607#0" expanded="true" />
-            <element signature="e#4669#4670#0" expanded="true" />
-            <element signature="e#5781#6424#0" expanded="true" />
-            <element signature="e#6423#6424#0" expanded="true" />
+            <element signature="e#4917#4918#0" expanded="true" />
+            <element signature="e#4980#4981#0" expanded="true" />
+            <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
+            <element signature="e#6517#7160#0" expanded="true" />
+            <element signature="e#7159#7160#0" expanded="true" />
+            <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
+            <element signature="e#9123#9124#0" expanded="true" />
+            <element signature="e#9163#9164#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -868,10 +886,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4606#4607#0" expanded="true" />
-            <element signature="e#4669#4670#0" expanded="true" />
-            <element signature="e#5781#6424#0" expanded="true" />
-            <element signature="e#6423#6424#0" expanded="true" />
+            <element signature="e#4917#4918#0" expanded="true" />
+            <element signature="e#4980#4981#0" expanded="true" />
+            <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
+            <element signature="e#6517#7160#0" expanded="true" />
+            <element signature="e#7159#7160#0" expanded="true" />
+            <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
+            <element signature="e#9123#9124#0" expanded="true" />
+            <element signature="e#9163#9164#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -913,10 +935,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4606#4607#0" expanded="true" />
-            <element signature="e#4669#4670#0" expanded="true" />
-            <element signature="e#5781#6424#0" expanded="true" />
-            <element signature="e#6423#6424#0" expanded="true" />
+            <element signature="e#4917#4918#0" expanded="true" />
+            <element signature="e#4980#4981#0" expanded="true" />
+            <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
+            <element signature="e#6517#7160#0" expanded="true" />
+            <element signature="e#7159#7160#0" expanded="true" />
+            <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
+            <element signature="e#9123#9124#0" expanded="true" />
+            <element signature="e#9163#9164#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -958,10 +984,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4606#4607#0" expanded="true" />
-            <element signature="e#4669#4670#0" expanded="true" />
-            <element signature="e#5781#6424#0" expanded="true" />
-            <element signature="e#6423#6424#0" expanded="true" />
+            <element signature="e#4917#4918#0" expanded="true" />
+            <element signature="e#4980#4981#0" expanded="true" />
+            <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
+            <element signature="e#6517#7160#0" expanded="true" />
+            <element signature="e#7159#7160#0" expanded="true" />
+            <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
+            <element signature="e#9123#9124#0" expanded="true" />
+            <element signature="e#9163#9164#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1041,14 +1071,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/json/JSONObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4.jar!/com/fasterxml/jackson/databind/JsonMappingException.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -1056,6 +1078,14 @@
           <folding>
             <element signature="e#2379#2380#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/json/JSONObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1069,21 +1099,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="74" selection-start-line="17" selection-start-column="74" selection-end-line="17" selection-end-column="74" />
+        <state relative-caret-position="272">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nader/creepscore/SearchSummoner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+        <state relative-caret-position="1224">
+          <caret line="220" column="9" selection-start-line="220" selection-start-column="9" selection-end-line="220" selection-end-column="9" />
           <folding>
-            <element signature="e#4606#4607#0" expanded="true" />
-            <element signature="e#4669#4670#0" expanded="true" />
-            <element signature="e#5781#6424#0" expanded="true" />
-            <element signature="e#6423#6424#0" expanded="true" />
+            <element signature="e#4917#4918#0" expanded="true" />
+            <element signature="e#4980#4981#0" expanded="true" />
+            <element signature="method#RetrieveInfo#0;class#SearchSummoner#0" expanded="false" />
+            <element signature="e#6517#7160#0" expanded="true" />
+            <element signature="e#7159#7160#0" expanded="true" />
+            <element signature="class#Summoner#0;class#SearchSummoner#0" expanded="false" />
+            <element signature="e#9123#9124#0" expanded="true" />
+            <element signature="e#9163#9164#0" expanded="true" />
           </folding>
         </state>
       </provider>
